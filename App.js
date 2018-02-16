@@ -1,9 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import { Provider } from 'react-redux';
 
 import store from './store/store';
 import ListBusInfoContainer from './containers/ListBusInfoContainer';
+
+var width = Dimensions.get('window').width;
+var height = Dimensions.get('window').height;
 
 export default class App extends React.Component {
   render() {
@@ -11,9 +14,6 @@ export default class App extends React.Component {
       <Provider store={store}>
         <View style={styles.container}>
           <ListBusInfoContainer />
-          <Text>Open up App.js to start working on your app!</Text>
-          <Text>Changes you make will automatically reload.</Text>
-          <Text>Shake your phone to open the developer menu.</Text>
         </View>
       </Provider>
     );
@@ -26,5 +26,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 50,
+    width,
+    height
   },
 });
